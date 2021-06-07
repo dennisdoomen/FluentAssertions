@@ -29,7 +29,7 @@ namespace FluentAssertions.Execution
         private Func<string> reason;
         private bool useLineBreaks;
 
-#if !NET45
+#if !NET451
         private static readonly AsyncLocal<AssertionScope> current = new AsyncLocal<AssertionScope>();
 #endif
         private AssertionScope parent;
@@ -321,7 +321,7 @@ namespace FluentAssertions.Execution
 
         private static AssertionScope GetCurrentAssertionScope()
         {
-#if !NET45
+#if !NET451
             return current.Value;
 #else
             return (AssertionScope)CallContext.LogicalGetData("this");
@@ -330,7 +330,7 @@ namespace FluentAssertions.Execution
 
         private static void SetCurrentAssertionScope(AssertionScope scope)
         {
-#if !NET45
+#if !NET451
             current.Value = scope;
 #else
             CallContext.LogicalSetData("this", scope);

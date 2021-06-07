@@ -119,6 +119,7 @@ namespace FluentAssertions.Equivalency
             {
                 if (step.CanHandle(context, config) && step.Handle(context, this, config))
                 {
+                    context.Tracer.AddSingle($"Step {step} handled the equivalency");
                     return;
                 }
             }

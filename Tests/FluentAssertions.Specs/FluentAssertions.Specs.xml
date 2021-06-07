@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentAssertions.Specs</name>
+    </assembly>
+    <members>
+        <member name="T:FluentAssertions.Specs.Collections.GenericCollectionSatisfyAssertionSpecs">
+            <summary>
+            The tests in this class are responsible for testing the Satisfy methods
+            in the <see cref="T:FluentAssertions.Collections.GenericCollectionAssertions`3"/> class.
+            </summary>
+        </member>
+        <member name="T:FluentAssertions.Specs.Collections.GenericDictionaryAssertionSpecs.TrueReadOnlyDictionary`2">
+            <summary>
+            This class only implements <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/>,
+            as <see cref="T:System.Collections.ObjectModel.ReadOnlyDictionary`2"/> also implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+        </member>
+        <member name="T:FluentAssertions.Specs.Common.TimeSpanExtensions">
+            <summary>
+            Implements extensions to <see cref="T:System.TimeSpan"/> available in .NET Core 2, but not in .NET Framework.
+            </summary>
+        </member>
+        <member name="M:FluentAssertions.Specs.CultureAwareTesting.CulturedXunitTheoryTestCase.#ctor(Xunit.Abstractions.IMessageSink,Xunit.Sdk.TestMethodDisplay,Xunit.Sdk.TestMethodDisplayOptions,Xunit.Abstractions.ITestMethod,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentAssertions.Specs.CultureAwareTesting.CulturedXunitTheoryTestCase"/> class.
+            </summary>
+            <param name="diagnosticMessageSink">The message sink used to send diagnostic messages</param>
+            <param name="defaultMethodDisplay">Default method display to use (when not customized).</param>
+            <param name="defaultMethodDisplayOptions">Default method display options to use (when not customized).</param>
+            <param name="testMethod">The method under test.</param>
+        </member>
+        <member name="T:FluentAssertions.Specs.Equivalency.DictionaryEquivalencySpecs.ClassWithTwoDictionaryImplementations">
+            <summary>
+            FakeItEasy can probably handle this in a couple lines, but then it would not be portable.
+            </summary>
+        </member>
+        <member name="T:FluentAssertions.Specs.Equivalency.ExtensibilityRelatedEquivalencySpecs">
+            <summary>
+            Test Class containing specs over the extensibility points of Should().BeEquivalentTo
+            </summary>
+        </member>
+        <member name="T:FluentAssertions.Specs.DataEquivalencySpecs">
+            <summary>
+            Class containing specs related to System.Data, including many common declarations and methods.
+            </summary>
+            <summary>
+            DataColumnEquivalency specs.
+            </summary>
+            <summary>
+            DataRelationEquivalency specs.
+            </summary>
+            <summary>
+            DataRowEquivalency specs.
+            </summary>
+            <summary>
+            DataSetEquivalency specs.
+            </summary>
+            <summary>
+            DataSetEquivalency specs for typed data sets.
+            </summary>
+            <summary>
+            DataTableEquivalency specs.
+            </summary>
+            <summary>
+            DataTableEquivalency specs for typed data tables.
+            </summary>
+        </member>
+        <member name="T:FluentAssertions.Specs.FakeClock">
+            <summary>
+            Implementation of <see cref="T:FluentAssertions.Common.IClock"/> for testing purposes only.
+            </summary>
+            <remarks>
+            It allows you to control the "current" time.
+            </remarks>
+        </member>
+        <member name="T:FluentAssertions.Primitives.ObjectAssertions">
+            <summary>
+            A class that intentionally has the exact same name and namespace as the ObjectAssertions from the FluentAssertions
+            assembly. This class is used to test the behavior of comparisons on such types.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+    </members>
+</doc>

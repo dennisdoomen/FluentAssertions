@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;net47;netstandard1.3;netstandard1.6;netstandard2.0;netstandard2.1;netcoreapp2.0;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>net451;net47;netstandard1.3;netstandard1.6;netstandard2.0;netstandard2.1;netcoreapp2.0;netcoreapp2.1</TargetFrameworks>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>FluentAssertions.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -24,7 +24,7 @@
     <Copyright>Copyright Dennis Doomen 2010-2020</Copyright>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net45'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net451'">
     <DefineConstants>NET45</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'net47'">
@@ -60,7 +60,7 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net451'">
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml" />

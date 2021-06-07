@@ -73,7 +73,7 @@ namespace FluentAssertions.Specs
             public ICollection Values => dictionary.Values;
         }
 
-        private class GenericDictionaryNotImplementingIDictionary<TKey, TValue> : IDictionary<TKey, TValue>
+        private class GenericDictionaryNotImplementingIDictionary<TKey, TValue> : IEnumerable, ICollection<KeyValuePair<TKey, TValue>>
         {
             private readonly Dictionary<TKey, TValue> dictionary = new Dictionary<TKey, TValue>();
 
@@ -298,7 +298,7 @@ namespace FluentAssertions.Specs
         public void When_a_dictionary_does_not_implement_the_dictionary_interface_it_should_still_be_treated_as_a_dictionary()
         {
             // Arrange
-            IDictionary<string, int> dictionary = new GenericDictionaryNotImplementingIDictionary<string, int>
+            var dictionary = new GenericDictionaryNotImplementingIDictionary<string, int>
             {
                 ["hi"] = 1
             };
@@ -311,6 +311,21 @@ namespace FluentAssertions.Specs
 
             // Assert
             act.Should().NotThrow();
+        }
+
+        [Fact]
+        public void When_a_collection_of_key_value_pairs_is_equivalent_to_the_dictionary_it_should_succeed()
+        {
+            // Arrange
+            var collection = new List<KeyValuePair<string, int>> { new KeyValuePair<string, int>("hi", 1) };
+
+            // Act / Assert
+            collection.Should().BeEquivalentTo(new Dictionary<string, int>()
+            {
+                { "hi", 2}
+            }, opt => opt.WithTracing());
+
+            //act.Should().Throw<XunitException>().WithMessage("Expected item[0].Value to be 2, but found 1.*");
         }
 
         [Fact]
