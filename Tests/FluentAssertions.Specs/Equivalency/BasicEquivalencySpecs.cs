@@ -2083,6 +2083,54 @@ namespace FluentAssertions.Specs.Equivalency
         {
         }
 
+#if NET5_0_OR_GREATER
+
+        [Fact]
+        public void Excluding_a_covariant_property_should_work()
+        {
+            var actual = new DerivedWithCovariantOverride(new DerivedWithProperty { DerivedProperty = "a", BaseProperty = "a_base" })
+            {
+                OtherProp = "other"
+            };
+
+            var expectation = new DerivedWithCovariantOverride(new DerivedWithProperty { DerivedProperty = "b", BaseProperty = "b_base" })
+            {
+                OtherProp = "other"
+            };
+
+            actual.Should().BeEquivalentTo(expectation, opts => opts
+                .Excluding(d => d.Property));
+        }
+
+        private class BaseWithProperty
+        {
+            public string BaseProperty { get; set; }
+        }
+
+        private class DerivedWithProperty : BaseWithProperty
+        {
+            public string DerivedProperty { get; set; }
+        }
+
+        private abstract class BaseWithAbstractProperty
+        {
+            public abstract BaseWithProperty Property { get; }
+        }
+
+        private sealed class DerivedWithCovariantOverride : BaseWithAbstractProperty
+        {
+            public override DerivedWithProperty Property { get; }
+
+            public string OtherProp { get; set; }
+
+            public DerivedWithCovariantOverride(DerivedWithProperty prop)
+            {
+                Property = prop;
+            }
+        }
+
+#endif
+
         #endregion
 
         #region Matching Rules
